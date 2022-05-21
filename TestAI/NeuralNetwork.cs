@@ -43,10 +43,10 @@ namespace TestAI
             {
                 foreach (var item in dataset)
                 {
-                    error = Backpropagation(item.Value, item.Key);
+                    error = Backpropagation(item.Value, item.Key) * 0.0001;
                 }
             }
-            return error / error;
+            return error;
         }
         private double Backpropagation(double exprected, params double[] inputs)
         {
@@ -71,7 +71,7 @@ namespace TestAI
                     }
                 }
             }
-            return difference * difference;
+            return difference;
         }
         private void FeedForwardAllLayersAfterInput()
         {

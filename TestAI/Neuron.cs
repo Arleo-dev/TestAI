@@ -54,30 +54,30 @@ namespace TestAI
                 sum += inputs[i] * Weights[i];
             }
 
-            if (NeuronType != NeuronType.Input)
-            {
-                Output = Sigmoid(sum);
-            }
-            else
-            {
+            //if (NeuronType != NeuronType.Input)
+            //{
+            //    Output = Sigmoid(sum);
+            //}
+            //else
+            //{
                 Output = sum;
-            }
+            //}
 
             return Output;
         }
 
-        private double Sigmoid(double x)
-        {
-            var result = 1.0 / (1.0 + Math.Pow(Math.E, -x));
-            return result;
-        }
+        //private double Sigmoid(double x)
+        //{
+        //    var result = 1.0 / (1.0 + Math.Pow(Math.E, -x));
+        //    return result;
+        //}
 
-        private double SigmoidDx(double x)
-        {
-            var sigmoid = Sigmoid(x);
-            var result = sigmoid / (1 - sigmoid);
-            return result;
-        }
+        //private double SigmoidDx(double x)
+        //{
+        //    var sigmoid = Sigmoid(x);
+        //    var result = sigmoid / (1 - sigmoid);
+        //    return result;
+        //}
 
         public void Learn(double error, double learningRate)
         {
@@ -86,7 +86,7 @@ namespace TestAI
                 return;
             }
 
-            Delta = error * SigmoidDx(Output);
+            Delta = error /** SigmoidDx(Output)*/;
 
             for (int i = 0; i < Weights.Count; i++)
             {
